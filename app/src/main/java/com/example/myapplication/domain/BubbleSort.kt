@@ -1,4 +1,7 @@
-package com.example.myapplication
+package com.example.myapplication.domain
+
+import com.example.myapplication.data.InputParser
+import com.example.myapplication.data.ResultFormatter
 
 data class SortResult(
     val sorted: List<Int>,
@@ -24,15 +27,14 @@ object BubbleSort {
                 }
             }
             passes++
-            if(!swapped) break
+            if (!swapped) break
         }
         return SortResult(arr, passes, swaps)
     }
 
     fun runSort(text: String): String {
-        val parsed = InputParser.parse(text)
-            ?: return "Ошибка: Введите целые числа"
-        if(parsed.isEmpty()) return ""
+        val parsed = InputParser.parse(text) ?: return "Ошибка: Введите целые числа"
+        if (parsed.isEmpty()) return ""
         return ResultFormatter.format(sort(parsed))
     }
 }

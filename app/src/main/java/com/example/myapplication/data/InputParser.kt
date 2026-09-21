@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.data
 
 object InputParser {
     fun parse(text: String): List<Int>? {
