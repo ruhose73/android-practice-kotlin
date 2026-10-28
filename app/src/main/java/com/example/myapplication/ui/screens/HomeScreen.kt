@@ -16,12 +16,15 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.myapplication.data.MockData
+import com.example.myapplication.domain.HomeData
 import com.example.myapplication.domain.Playlist
 import com.example.myapplication.ui.components.PlaylistCarousel
 import com.example.myapplication.ui.components.PreviewWrapper
+import com.example.myapplication.ui.components.sampleHome
 
 @Composable
 fun HomeScreen (
+    home: HomeData,
     onPlaylistClick: (Playlist) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -36,11 +39,11 @@ fun HomeScreen (
             modifier = Modifier.padding(16.dp)
         )
 
-        PlaylistCarousel(title = "Made for you", playlists = MockData.madeForYou, onPlaylistClick = onPlaylistClick)
+        PlaylistCarousel(title = "Made for you", playlists = home.madeForYou, onPlaylistClick = onPlaylistClick)
 
-        PlaylistCarousel(title = "Popular", playlists = MockData.popular, onPlaylistClick = onPlaylistClick)
+        PlaylistCarousel(title = "Popular", playlists = home.popular, onPlaylistClick = onPlaylistClick)
 
-        PlaylistCarousel(title = "Mood", playlists = MockData.mood, onPlaylistClick = onPlaylistClick)
+        PlaylistCarousel(title = "Mood", playlists = home.mood, onPlaylistClick = onPlaylistClick)
 
     }
 }
@@ -49,6 +52,6 @@ fun HomeScreen (
 @Composable
 private fun HomeScreenPreview() {
     PreviewWrapper {
-        HomeScreen(onPlaylistClick = {})
+        HomeScreen(home = sampleHome, onPlaylistClick = { })
     }
 }
