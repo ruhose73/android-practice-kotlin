@@ -2,6 +2,7 @@ package com.example.myapplication.ui.components
 
 import androidx.compose.runtime.Composable
 import com.example.myapplication.data.MockData
+import com.example.myapplication.domain.HomeData
 import com.example.myapplication.domain.Playlist
 import com.example.myapplication.domain.Song
 import com.example.myapplication.ui.theme.MyApplicationTheme
@@ -16,3 +17,5 @@ fun PreviewWrapper  (content: @Composable () -> Unit) {
 val samplePlaylist: Playlist = MockData.popular.first()
 val samplePlaylistWithSongs: Playlist = MockData.madeForYou.first()
 val sampleSong: Song = MockData.songs.first()
+
+val sampleHome: HomeData = HomeData(MockData.madeForYou, MockData.popular, MockData.mood)
