@@ -28,6 +28,7 @@ import com.example.myapplication.ui.components.SongRow
 
 @Composable
 fun LibraryScreen (
+    playlists: List<Playlist>,
     onPlaylistClick: (Playlist) -> Unit,
     modifier: Modifier = Modifier
 ) {
@@ -45,7 +46,7 @@ fun LibraryScreen (
             )
         }
 
-        items(MockData.library, key = {it.id}) { playlist ->
+        items(playlists, key = {it.id}) { playlist ->
             PlaylistCard(
                 playlist = playlist,
                 onClick = { onPlaylistClick(playlist) }
@@ -58,6 +59,6 @@ fun LibraryScreen (
 @Composable
 private fun LibraryScreenPreview() {
     PreviewWrapper {
-        LibraryScreen(onPlaylistClick = {})
+        LibraryScreen(playlists = MockData.library, onPlaylistClick = { })
     }
 }
